@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace WinFormTest_Telecom
 {
@@ -15,7 +17,7 @@ namespace WinFormTest_Telecom
     {
         MySqlConnection conn;
         MySqlDataAdapter dataAdapter;
-        DataSet dataSet;
+        DataSet dataSet, printDataSet;
 
         int selectedRowIndex;
 
@@ -38,6 +40,7 @@ namespace WinFormTest_Telecom
             conn = new MySqlConnection(connStr);
             dataAdapter = new MySqlDataAdapter("SELECT * FROM telecom.order", conn);
             dataSet = new DataSet();
+            printDataSet = new DataSet();
 
             SetSearchAccountComboBox();
         }
@@ -153,7 +156,7 @@ namespace WinFormTest_Telecom
         /* 고객 조회 폼 디버깅 */
         private void btnAccDebug_Click(object sender, EventArgs e)
         {
-            Form2 AccSearch = new Form2(conn, true);
+            Form2 AccSearch = new Form2(conn, false);
 
             AccSearch.Owner = this;
             AccSearch.ShowDialog();               // 폼 띄우기(Modal)
@@ -1336,6 +1339,87 @@ namespace WinFormTest_Telecom
                 ToggleTextBoxAndButtons(false);
 
                 btnTerminate.Focus();
+            }
+        }
+
+        /* 엑셀 데이터 내보내기 */
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Excel.Application ap = new Excel.Application();
+            Excel.Workbook excelWorkBook = ap.Workbooks.Add();
+
+            string queryStr = "SELECT o.order_id 일련번호, a.name 명의자, o.line_num 회선번호, p.telecom 통신사, CONCAT(p.class, ' ', p.name) 요금제명, CONCAT(m.manufacturer, ' ', m.petname, ' ', m.storage, 'GB ', m.color) 기종명, o.orderdate 개통일, o.ordertype 가입유형, o.rebatetype 할인유형, o.bondmonth 할부개월, CONCAT(o.buyprice, '원') 단말기할부금, o.enddate 만기일, CONCAT(o.balance, '원') 미납금 " +
+                "FROM telecom.order o, telecom.account a, telecom.model m, telecom.plan p " +
+                "WHERE a.acc_id = o.acc_id " +
+                "AND m.model_id = o.model_id " +
+                "AND p.plan_id = o.plan_id " +
+                "AND o.terminate = 0 ";
+            // [0] 일련번호 [1] 명의자 [2] 회선번호 [3] 통신사 [4] 요금제명 [5] 기종명 [6] 개통일 [7] 가입유형 [8] 할인유형 [9] 할부개월 [10] 단말기할부금 [11] 만기일 [12] 미납금
+
+            /* SelectCommand 객체 생성 및 Parameters 설정 */
+            dataAdapter.SelectCommand = new MySqlCommand(queryStr, conn);
+
+            /* 실행 */
+            try
+            {
+                conn.Open();
+                printDataSet.Clear();
+                dataAdapter.Fill(printDataSet, "telecom.order");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            foreach (DataTable dt in printDataSet.Tables)
+            {
+                Excel.Worksheet ws = excelWorkBook.Sheets.Add();
+                ws.Name = dt.TableName;
+
+                for (int columnHeaderIndex = 1; columnHeaderIndex <= dt.Columns.Count; columnHeaderIndex++)
+                {
+                    ws.Cells[1, columnHeaderIndex] = dt.Columns[columnHeaderIndex - 1].ColumnName;
+                    ws.Cells[1, columnHeaderIndex].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightSteelBlue);
+                }
+
+                for (int rowIndex = 0; rowIndex < dt.Rows.Count; rowIndex++)
+                {
+                    for (int columnIndex = 0; columnIndex < dt.Columns.Count; columnIndex++)
+                    {
+                        ws.Cells[rowIndex + 2, columnIndex + 1] = dt.Rows[rowIndex].ItemArray[columnIndex].ToString();
+                    }
+                }
+
+                ws.Columns.AutoFit();
+            }
+
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            saveFile.Title = "Excel 저장위치 지정";
+            saveFile.DefaultExt = "xlsx";
+            saveFile.Filter = "Xlsx files(*.xlsx)|*.xlsx|Xls files(*.xls)|*.xls";
+            saveFile.ShowDialog();
+
+            if (saveFile.FileNames.Length > 0)
+            {
+                foreach (string filename in saveFile.FileNames)
+                {
+                    string savePath = filename;
+                    if (Path.GetExtension(savePath) == ".xls")
+                    {
+                        excelWorkBook.SaveAs(savePath, Excel.XlFileFormat.xlWorkbookNormal);
+                    }
+                    else if (Path.GetExtension(savePath) == ".xlsx")
+                    {
+                        excelWorkBook.SaveAs(savePath, Excel.XlFileFormat.xlOpenXMLWorkbook);
+                    }
+                    excelWorkBook.Close(true);
+                    ap.Quit();
+                }
             }
         }
     }

@@ -15,3 +15,5 @@
 \\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\obj\Release\WinFormTest_Telecom.csproj.CopyComplete
 \\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\obj\Release\WinFormTest_Telecom.exe
 \\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\obj\Release\WinFormTest_Telecom.pdb
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\obj\Release\WinFormTest_Telecom.csprojAssemblyReference.cache
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\obj\Release\WinFormTest_Telecom.csproj.ResolveComReference.cache

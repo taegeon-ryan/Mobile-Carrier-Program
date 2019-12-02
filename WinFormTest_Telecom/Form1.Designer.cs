@@ -129,6 +129,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -1401,12 +1402,25 @@
             this.pictureBox3.TabIndex = 14;
             this.pictureBox3.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.Font = new System.Drawing.Font("나눔스퀘어 Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button1.Location = new System.Drawing.Point(1091, 699);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(214, 28);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "전체 데이터 내보내기 (Excel)";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1339, 716);
+            this.ClientSize = new System.Drawing.Size(1339, 748);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
@@ -1553,6 +1567,7 @@
         private System.Windows.Forms.TextBox tbMonthLeft;
         private System.Windows.Forms.Label lblMonthlyDiscount;
         private System.Windows.Forms.Label lblDiscountExists;
+        private System.Windows.Forms.Button button1;
     }
 }
 

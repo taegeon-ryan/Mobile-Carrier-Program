@@ -268,7 +268,7 @@ namespace WinFormTest_Telecom
                 tbCurrentAccount.Text = "타 통신사 가입 회선";
 
                 rdbType1.Enabled = true;
-                rdbType1.Enabled = false;
+                rdbType2.Enabled = false;
             }
         }
 
@@ -595,6 +595,9 @@ namespace WinFormTest_Telecom
                     gbRebateType.Enabled = true;
                     gbBondMonth.Enabled = true;
                     gbOrderType.Enabled = true;
+                    rdbBond1.Enabled = true;
+                    rdbBond2.Enabled = true;
+                    rdbBond3.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -645,6 +648,9 @@ namespace WinFormTest_Telecom
                     gbRebateType.Enabled = true;
                     gbBondMonth.Enabled = true;
                     gbOrderType.Enabled = true;
+                    rdbBond1.Enabled = true;
+                    rdbBond2.Enabled = true;
+                    rdbBond3.Enabled = true;
                 }
             }
             catch (Exception ex)

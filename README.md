@@ -4,7 +4,7 @@
 C# 윈폼으로 만든 통신사 지점용 개통업무 프로그램 (MySQL 연동)
 
 ## 메인 화면
-
+[![Main Image](./WinFormTest_Telecom/Form1_img.PNG)]()
 
 ## 기능
 - 계정, 요금제, 기종 데이터의 **생성/읽기/수정/삭제**

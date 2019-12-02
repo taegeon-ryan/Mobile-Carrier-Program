@@ -1,0 +1,17 @@
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\bin\Release\WinFormTest_Telecom.exe.config
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\bin\Release\WinFormTest_Telecom.exe
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\bin\Release\WinFormTest_Telecom.pdb
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\bin\Release\MySql.Data.dll
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\bin\Release\Google.Protobuf.dll
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\bin\Release\BouncyCastle.Crypto.dll
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\bin\Release\Renci.SshNet.dll
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\bin\Release\MySql.Data.xml
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\obj\Release\WinFormTest_Telecom.Form1.resources
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\obj\Release\WinFormTest_Telecom.Form2.resources
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\obj\Release\WinFormTest_Telecom.Form3.resources
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\obj\Release\WinFormTest_Telecom.Form4.resources
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\obj\Release\WinFormTest_Telecom.Properties.Resources.resources
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\obj\Release\WinFormTest_Telecom.csproj.GenerateResource.cache
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\obj\Release\WinFormTest_Telecom.csproj.CopyComplete
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\obj\Release\WinFormTest_Telecom.exe
+\\Mac\Home\Documents\CSharpWorkspace\WinFormTest_Telecom\WinFormTest_Telecom\obj\Release\WinFormTest_Telecom.pdb

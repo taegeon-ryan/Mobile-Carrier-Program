@@ -210,7 +210,7 @@ namespace WinFormTest_Telecom
             string changeBirth = $"{cbYear.Text}-{int.Parse(cbMonth.Text).ToString("D2")}-{int.Parse(cbDay.Text).ToString("D2")}";
             string changePhoneNum = $"{cbPhoneNum.Text}-{tbPhoneNumMid.Text}-{tbPhoneNumEnd.Text}";
 
-            bool isNotFilled = CheckAccTextBox(name, birth, phoneNum);
+            bool isNotFilled = CheckAccTextBox(changeName, changeBirth, changePhoneNum);
             if (isNotFilled) return;
 
             string askUpdate = $"성명: {changeName}\n생년월일: {changeBirth}\n회선번호: {changePhoneNum}\n으로 수정할까요?";
